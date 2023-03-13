@@ -1,0 +1,56 @@
+<html:<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+      form{
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+      }
+    </style>
+  </head>
+  <body>
+      <h1>Welcome To Blood Donor App</h1>
+      <button>Login Here</button>
+      <form action="http://localhost:4500/user/signup" method="post">
+        <h1>sign up</h1>
+        <input type="text" name="username" id="username" placeholder="Please enter name">
+        <input type="text" name="age" id="age" placeholder="Please enter Age">
+        <input type="email" name="email" id="email" placeholder="enter email">
+        <input type="password" name="password" id="password" placeholder="enter valid password">
+        <input type="text" name="telegramlink" id="telegramlink" placeholder="Enter telegramlink">
+        <select name="location" id="location">
+          <option value="coimbatore">Coimbatore</option>
+          <option value="tiruppur">Tiruppur</option>
+          <option value="chennai">chennai</option>
+          <option value="erode">Erode</option>
+      </select>
+      <select name="role" id="bloodgroup" >
+        <option value="admin">Admin</option>
+        <option value="donor">Donor</option>
+        <option value="finder">Finder</option>
+    </select>
+        <select name="bloodgroup" id="bloodgroup">
+            <option value="a+ve">A+Ve</option>
+            <option value="a-ve">A-VE</option>
+            <option value="ab+ve">AB+Ve</option>
+            <option value="ab-ve">AB-VE</option>
+        </select>
+        <input type="date" name="donoravailon" id="donoravailon">
+        <input type="submit" value="submit">
+      </form>
+      <!-- Login Form -->
+      <form action="http://localhost:4500/user/login" method="post">
+        <h1>login</h1>
+        <input type="email" name="email" id="email" placeholder="enter emain">
+        <input type="password" name="password" id="password" placeholder="enter valid password">
+        <input type="submit" value="submit">
+      </form>
+
+  </body>
+</html>
