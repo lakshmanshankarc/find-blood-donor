@@ -18,8 +18,8 @@ export function adminAccess(req, res, next) {
     if (token == null) return res.sendStatus(401)
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
         if (err) return res.s(403).json({ message: "Token is not valid!" })
-        if (user.role === "teacher" || user.role === "admin") return next()
-        res.status(403).json({ message: "you cannot post this operation" })
+        if (user.role === "admin") return next()
+        res.status(403).json({ message: "you cannot perform this operation" })
     })
 }
 
