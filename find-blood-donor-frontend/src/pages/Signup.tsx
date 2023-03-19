@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { UserType } from '../../types/user'
 import axios from 'axios'
 import { Form } from 'react-router-dom'
-import { SIGNUP_URL } from "../../constants"
+import { SIGNUP_URL, addThreeMonthsToDate } from "../../constants"
 const intial: UserType = {
     username: "",
     age: 0,
@@ -20,11 +20,13 @@ function Signup() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
+        user.donoravailon = addThreeMonthsToDate(user.donoravailon)
+        user.telegramlink = `https://t.me/${user.telegramlink}`
         try {
-            // let res = await axios.post('/api/user/signup', user)
+            // let res = await axios.post('/api/user/signup', user) 
             const res = await axios.post(SIGNUP_URL, user)
             alert(res.data.message)
-
+            console.log(user)
         } catch (e) {
             alert("Unable to create User");
             console.log(e);
@@ -79,8 +81,6 @@ function Signup() {
                 />
 
                 <button type="submit" className=' bg-rose-500 w-11/12 rounded-xl border-0 p-5 text-xl btn btn-outline hover:bg-rose-400 h-full'>Submit</button>
-
-
             </Form>
         </div>
     )

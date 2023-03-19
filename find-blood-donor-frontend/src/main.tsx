@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import { CookiesProvider } from 'react-cookie'
 import './index.css'
 import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
     element: <Login />,
     errorElement: <ErootPage />
   },
+  {
+    path:"/dashboard",
+    element:<Dashboard/>,
+    errorElement:<ErootPage/>,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

@@ -2,3 +2,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* random linear gradeint to css text */
+.text-gradient {
+  background: linear-gradient(90deg, #f6d365 , #fda085 );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.little-big:hover{
+  transition: 0.4s;
+  transform: scale(1.06);
+}
