@@ -1,7 +1,8 @@
 -- Database file for the Find Donor Application
 
 -- Database Name BloodDB
-DROP DATABASE BloodDB; 
+DROP DATABASE BloodDB;
+
 -- Table Name Donor
 CREATE DATABASE BloodDB;
 
@@ -20,5 +21,6 @@ CREATE TABLE UserTable (
   role varchar(30),
   donoravailon varchar(50) default ""
 );
+
 ALTER TABLE UserTable ADD PRIMARY KEY(email);
 -- Path /sql/main.sql

@@ -6,7 +6,7 @@ import cors from 'cors'
 
 config();
 const app = express();
-const PORT = process.env.NODE_PORT || 4500
+const PORT = process.env.NODE_PORT || 5000
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Credentials", true);
@@ -14,9 +14,7 @@ app.use((req, res, next) => {
 });
 app.use(express.json());
 app.use(
-  cors({
-    origin: "http://localhost:3000",
-  })
+  cors()
 );
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: false }))
