@@ -53,11 +53,11 @@ function Signup() {
                 <input type="password" name="password" id="password" value={user.password} onChange={(e) => setUser({ ...user, password: e.target.value })}
                     className=' w-11/12 px-3 my-3 shadow-lg rounded p-3' placeholder='Enter Password' required
                 />
-
+               {/* change the blood group to select  */}
                 <input type="text" name="bloodgroup" id="bloodgroup" value={user.bloodgroup} onChange={(e) => setUser({ ...user, bloodgroup: e.target.value })}
                     className=' w-11/12 px-3 my-3 shadow-lg rounded p-3' placeholder='Enter Blood Group' required
                 />
-
+                {/* change the location to select  */}
                 <input type="text" name="location" id="location" value={user.location} onChange={(e) => setUser({ ...user, location: e.target.value })}
                     className=' w-11/12 px-3 my-3 shadow-lg rounded p-3' placeholder='Enter Your Location' required
                 />
