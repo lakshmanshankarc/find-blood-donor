@@ -4,8 +4,13 @@ import { USER_URL } from '../../constants'
 import Navbar from '../components/Navbar'
 import { UserType } from '../../types/user'
 import { Link } from 'react-router-dom'
+import { useCookies } from 'react-cookie'
+import DonorComponent from '../components/DonorComponent'
+import DonorSearchComponent from '../components/Dsearch'
 function Dashboard() {
   const [user, setUser] = React.useState<UserType>()
+  const [cookie, setCookie, removeCookie] = useCookies(["blood-token"]) 
+
   useEffect(() => {
     axios.get(USER_URL, {
       withCredentials: true
@@ -14,7 +19,7 @@ function Dashboard() {
     }).catch((e) => console.log(e))
   }, [])
  const clearCookie= async (params:any) => {
-  
+   removeCookie("blood-token")
  }
   console.log(user)
   return (
@@ -22,7 +27,7 @@ function Dashboard() {
       <Navbar />
       {user ?
         <>
-          <div className="grid grid-cols-3 gap-10 p-10 w-full h-screen">
+          <div className="grid grid-cols-3 gap-10 p-10 w-full h-screen fixed">
             <div className="bg-gradient-to-br from-blue-100 shadow-xl  to-red-100 rounded-3xl col-span-2 h-400 mt-10 flex flex-col items-center justify-center">
               <h1 className="w-full  text-center text-9xl text-stone-900 font-ubuntu font-extrabold p-20">
                 Welcome {user.username}
@@ -39,6 +44,7 @@ function Dashboard() {
               <h1 className="w-full text-5xl text-stone-100 font-ubuntu font-extrabold p-5">
                 location:{user.location}
               </h1>
+
               <h1 className="w-full text-2xl text-stone-100 font-ubuntu font-extrabold p-5">
                 You can Donate After:{user.donoravailon}
               </h1>
@@ -47,11 +53,19 @@ function Dashboard() {
                 <div className="w-full text-2xl  bg-slate-100 rounded-xl shadow-lg font-ubuntu font-extrabold p-5 flex justify-center little-big">Telegram</div>
               </a>
 
-              <button className='w-full' onClick={()=>clearCookie}>
-                <div className="w-full text-2xl text-stone-100  bg-orange-500 mt-10 rounded-xl shadow-lg font-ubuntu font-extrabold p-5 flex justify-center">Signout</div></button>
+              <a href={`mailto:${user.email}`} className=' text-black text-3xl text-center '>
+                <div className="w-full text-2xl bg-amber-200 mt-10 rounded-xl shadow-lg font-ubuntu font-extrabold p-5 flex little-big justify-center text-black">Email</div>
+              </a>
+
+              <button className='w-full' onClick={() => removeCookie("blood-token")}>
+                <div className="w-full text-2xl text-stone-100  bg-orange-500 mt-10 rounded-xl shadow-lg font-ubuntu font-extrabold p-5 flex little-big justify-center">Signout</div></button>
             </div>
-            <div className="bg-gradient-to-br from-green-300 to-teal-100  rounded-3xl row-span-1 h-800 shadow-lg"></div>
-            <div className="bg-gradient-to-br from-cyan-500 h-400 rounded-3xl shadow-lg"></div>
+            <div className="bg-gradient-to-br from-green-300 to-teal-100  rounded-3xl row-span-1 h-800 shadow-lg flex items-center justify-center">
+              <DonorComponent />
+            </div>
+            <div className="bg-gradient-to-br from-cyan-500 h-400 rounded-3xl shadow-lg flex items-center justify-center p-10">
+              <DonorSearchComponent />
+            </div>
           </div>
         </>
         :

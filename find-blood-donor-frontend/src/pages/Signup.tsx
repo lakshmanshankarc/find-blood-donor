@@ -11,7 +11,7 @@ const intial: UserType = {
     bloodgroup: "",
     location: "",
     telegramlink: "",
-    role: "",
+    role: "user",
     donoravailon: ""
 }
 
@@ -71,7 +71,7 @@ function Signup() {
                     className=' w-11/12 px-3 my-3 shadow-lg rounded p-3' placeholder='Enter Your Email' required
                 >
                     <option value="user">user</option>
-                    <option value="user">donor</option>
+                    <option value="donor">donor</option>
                 </select>
 
                 <label htmlFor="donoravailon" className=' -translate-x-32 font-semibold'>Last Donated On</label>
