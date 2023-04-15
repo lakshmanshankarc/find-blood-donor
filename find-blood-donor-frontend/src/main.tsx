@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Signup from './pages/Signup';
 import ErootPage from './error-page';
-import About from './pages/About';
 import App from './App'
 import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import { CookiesProvider } from 'react-cookie'
@@ -35,11 +34,6 @@ const router = createBrowserRouter([
   {
     path: "/search",
     element: <Search />,
-    errorElement: <ErootPage />
-  },
-  {
-    path: "/about",
-    element: <About />,
     errorElement: <ErootPage />
   }
 ]);

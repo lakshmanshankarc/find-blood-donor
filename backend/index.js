@@ -5,7 +5,6 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors'
 import { Poolconfig } from "../backend/connection.js";
 import { createPool } from "mysql2";
-import { donoteUpdate, searchByDonor } from './controllers/donor.js';
 
 config();
 
@@ -36,7 +35,7 @@ app.get("/", (req, res) => {
 })
 
 app.get('/users', (req, res) => {
-  pool.query('SELECT * FROM UserTable where age > 18', (error, results) => {
+  pool.query('SELECT * FROM UserTable', (error, results) => {
     if (error) {
       res.status(500).json({ error: error.code, message: error.message, name: error.name });
     } else {
@@ -44,12 +43,6 @@ app.get('/users', (req, res) => {
     }
   });
 });
-
-app.get('/donors', searchByDonor);
-
-
-app.post("/donate", donoteUpdate)
-
 
 app.listen(PORT, () => {
   console.log(`Donor App running On ${PORT}`)

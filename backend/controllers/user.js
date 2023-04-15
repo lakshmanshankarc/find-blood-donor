@@ -36,6 +36,8 @@ export const createUser = async (req, res) => {
             })
         }
     })
+
+
 };
 
 export const loginUser = (req, res) => {
@@ -69,6 +71,7 @@ export const loginUser = (req, res) => {
 };
 export const getUserFToken=async function (req,res) {
   const token = req.cookies["blood-token"]
+  console.log(token,"is what")
    if (!token) res.status(200).json({message:'Request is missing blood token'})
   else{
     jwt.verify(token,process.env.JWT_SECRET,async(err,decoded)=>{

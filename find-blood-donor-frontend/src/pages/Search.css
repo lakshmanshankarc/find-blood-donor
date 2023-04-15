@@ -8,17 +8,16 @@
     background: #000000;
     background: linear-gradient(135deg, #ff4929 0%, #ffd54d 100%);
     border-radius: 8px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.82);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   }
   .title{
     color : rgb(36, 2, 25);
     display: block;
-    
     margin-bottom: 1rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     position : relative;
-    left : 13%;
+    left : 20%;
   }
   .search-label {
     display: block;

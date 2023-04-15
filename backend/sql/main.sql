@@ -1,15 +1,16 @@
 -- Database file for the Find Donor Application
+
 -- Database Name BloodDB
--- Table Name Donor
 DROP DATABASE BloodDB;
+
+-- Table Name Donor
 CREATE DATABASE BloodDB;
 
--- -- Use DB
+-- Use DB
 USE BloodDB;
 
 -- Table UserTable
 CREATE TABLE UserTable (
-  user_id INT NOT NULL AUTO_INCREMENT,
   username varchar(20),
   age varchar(20),
   email varchar(30),
@@ -18,14 +19,8 @@ CREATE TABLE UserTable (
   telegramlink varchar(50),
   location varchar(30),
   role varchar(30),
-  donoravailon varchar(50) default "",
-  PRIMARY KEY(user_id),
-  UNIQUE KEY(email)
+  donoravailon varchar(50) default ""
 );
 
-CREATE TABLE DonorTable(
-  donor_id INT,
-  date varchar(50) default "",
-  FOREIGN KEY (donor_id) REFERENCES UserTable(user_id)
-);
-
+ALTER TABLE UserTable ADD PRIMARY KEY(email);
+-- Path /sql/main.sql
